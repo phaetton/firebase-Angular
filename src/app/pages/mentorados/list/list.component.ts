@@ -13,6 +13,40 @@ export class ListComponent implements OnInit {
       value: null
     }
   };
+
+  fakeData = [
+    {
+      nombre: 'Jose',
+      apellido: 'Perez',
+      email: 'Jose@jose.com',
+      fechanac: '02/04/1986'
+    },
+    {
+      nombre: 'pedro',
+      apellido: 'Perez',
+      email: 'Jose@jose.com',
+      fechanac: '02/04/1986'
+    },
+    {
+      nombre: 'Mario',
+      apellido: 'Perez',
+      email: 'Jose@jose.com',
+      fechanac: '02/04/1986'
+    },
+    {
+      nombre: 'Maria',
+      apellido: 'Perez',
+      email: 'Jose@jose.com',
+      fechanac: '02/04/1986'
+    },
+    {
+      nombre: 'Jean',
+      apellido: 'Perez',
+      email: 'Jose@jose.com',
+      fechanac: '02/04/1986'
+    },
+
+  ]
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -31,4 +65,5 @@ export class ListComponent implements OnInit {
     alert('Deleted');
   }
 
+  
 }

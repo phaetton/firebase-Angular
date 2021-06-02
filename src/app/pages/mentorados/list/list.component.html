@@ -1,17 +1,19 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
       <th>Email</th>
-      <th>Fecha inicio</th>
+      <th>Fecha nacimiento</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of [0,1,2,3,4]">
-      <td>Jose</td>
-      <td>jose@jose.com</td>
-      <td>02/04/1986</td>
+    <tr *ngFor="let item of fakeData">
+      <td>{{item.nombre}}</td>
+      <td>{{item.apellido}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.fechanac}}</td>
       <td>
         <button (click)=onGoEdit(item)>Edit</button>
         <button (click)=onGoSee(item)>See</button>
@@ -20,3 +22,4 @@
     </tr>
   </tbody>
 </table>
+
