@@ -1,1 +1,22 @@
-<p>list works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Fecha inicio</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of [0,1,2,3,4]">
+      <td>Jose</td>
+      <td>jose@jose.com</td>
+      <td>02/04/1986</td>
+      <td>
+        <button (click)=onGoEdit(item)>Edit</button>
+        <button (click)=onGoSee(item)>See</button>
+        <button (click)=onGoDelete(item)>Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
