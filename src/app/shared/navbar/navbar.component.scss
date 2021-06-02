@@ -1,0 +1,18 @@
+ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+li {
+  padding: 5px;
+  margin: 5px;
+  list-style: none;
+  background-color: lightblue;
+}
+
+.router-link-active {
+  background-color: lightslategray;
+  color: aliceblue;
+}
