@@ -9,15 +9,19 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 public isLogget=false;
+public user:any;
   constructor(private authSvc: AuthService) { }
 
   async ngOnInit() {
     console.log('navbar');
-    const user = await this.authSvc.getCurrentUser();
-    if (user) {
+    this.user = await this.authSvc.getCurrentUser();
+    if (this.user) {
       this.isLogget=true;
-      console.log('user->', user);
     }
+  }
+
+  onLogout(){
+    console.log("estas saliendo del sistema");
   }
 
 }
