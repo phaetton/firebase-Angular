@@ -4,4 +4,5 @@
   <li [routerLink]="['/login']" routerLinkActive="router-link-active" *ngIf="!isLogget">Login</li>
   <li *ngIf="isLogget" (click)='onLogout()'>Log out</li>
   <li [routerLink]="['/register']" routerLinkActive="router-link-active" *ngIf="!isLogget">Register</li>
+  <li>{{user?.email}}</li>
 </ul>
