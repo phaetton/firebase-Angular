@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { auth } from "firebase/app";
-import { User } from "firebase";
+import firebase from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { first } from "rxjs/operators";
 
@@ -9,7 +8,7 @@ import { first } from "rxjs/operators";
   providedIn: 'root'
 })
 export class AuthService {
-  public user: User;
+  public user: firebase.User | undefined;
   constructor(public afAuth: AngularFireAuth) {
   }
 
