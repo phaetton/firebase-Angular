@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
@@ -9,19 +10,13 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   providers: [AuthService]
 })
 export class NavbarComponent implements OnInit {
-public isLogget=false;
-public user:any;
-  constructor(private authSvc: AuthService,private router:Router) { }
+  public user$: Observable<any> = this.authSvc.afAuth.user;
+  constructor(private authSvc: AuthService, private router: Router) { }
 
   async ngOnInit() {
-    console.log('navbar');
-    this.user = await this.authSvc.getCurrentUser();
-    if (this.user) {
-      this.isLogget=true;
-    }
   }
 
-  async onLogout(){
+  async onLogout() {
     console.log("has salido del sistema");
     await this.authSvc.logout();
     this.router.navigate(['/login']);

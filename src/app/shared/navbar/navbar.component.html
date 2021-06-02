@@ -1,8 +1,9 @@
-<ul>
+<ul *ngIf="user$ | async as user">
   <li [routerLink]="['/home']" routerLinkActive="router-link-active">Mentor Plus 2.0</li>
   <li [routerLink]="['/home']" routerLinkActive="router-link-active">Home</li>
-  <li [routerLink]="['/login']" routerLinkActive="router-link-active" *ngIf="!isLogget">Login</li>
-  <li *ngIf="isLogget" (click)='onLogout()'>Log out</li>
-  <li [routerLink]="['/register']" routerLinkActive="router-link-active" *ngIf="!isLogget">Register</li>
+  <li [routerLink]="['/login']" routerLinkActive="router-link-active" *ngIf="!user">Login</li>
+  <li *ngIf="user" (click)='onLogout()'>Log out</li>
+  <li [routerLink]="['/register']" routerLinkActive="router-link-active" *ngIf="user">Register</li>
   <li>{{user?.email}}</li>
 </ul>
+
