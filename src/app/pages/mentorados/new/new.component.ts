@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-new',
-  templateUrl: './new.component.html',
+  template: `<app-mentorado-form></app-mentorado-form>`,
   styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {

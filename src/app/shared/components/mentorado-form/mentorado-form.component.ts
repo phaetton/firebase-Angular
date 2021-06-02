@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Mentorado } from 'src/app/shared/models/mentorado.interface';
+import { Mentorado } from '../../models/mentorado.interface';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  selector: 'app-mentorado-form',
+  templateUrl: './mentorado-form.component.html',
+  styleUrls: ['./mentorado-form.component.scss']
 })
-export class EditComponent implements OnInit {
+export class MentoradoFormComponent implements OnInit {
+
   mentorado: Mentorado;
   private isEmail = '/\S+@\S+\.\S+/';
 
@@ -41,6 +42,5 @@ export class EditComponent implements OnInit {
   onGoBackList(): void {
     this.router.navigate(['list']);
   }
-
 
 }

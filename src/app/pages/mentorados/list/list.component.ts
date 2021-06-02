@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Mentorado } from 'src/app/shared/models/mentorado.interface';
 
 @Component({
   selector: 'app-list',
@@ -14,6 +15,7 @@ export class ListComponent implements OnInit {
     }
   };
 
+ 
   fakeData = [
     {
       nombre: 'Jose',
@@ -53,12 +55,12 @@ export class ListComponent implements OnInit {
   }
 
   onGoEdit(item: any): void {
-    this.navigationExtras.state = item;
+    this.navigationExtras.state!.value = item;
     this.router.navigate(['edit'], this.navigationExtras);
   }
 
   onGoSee(item: any): void {
-    this.navigationExtras.state = item;
+    this.navigationExtras.state!.value = item;
     this.router.navigate(['details'], this.navigationExtras);
   }
   onGoDelete(item: any): void {

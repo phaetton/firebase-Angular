@@ -10,18 +10,20 @@ import { ReactiveFormsModule  } from "@angular/forms";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from 'src/environments/environment';
+import { MentoradoFormModule } from './shared/components/mentorado-form/mentorado-form.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MentoradoFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

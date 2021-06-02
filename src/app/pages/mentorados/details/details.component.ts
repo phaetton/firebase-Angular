@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Mentorado } from 'src/app/shared/models/mentorado.interface';
 
 @Component({
   selector: 'app-details',
@@ -13,13 +14,16 @@ export class DetailsComponent implements OnInit {
     }
   };
 
-  mentorado: any=null;
+  mentorado: Mentorado;
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    this.mentorado = navigation?.extras?.state;
+    this.mentorado = navigation?.extras?.state?.value;
   }
 
   ngOnInit(): void {
+    if(typeof this.mentorado==='undefined'){
+      this.router.navigate(['list']);
+    }
   }
 
   onGoEdit(): void {
