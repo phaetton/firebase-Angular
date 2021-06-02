@@ -16,14 +16,14 @@ export class DetailsComponent implements OnInit {
   mentorado: any=null;
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    this.mentorado = navigation?.extras?.state;
+    this.mentorado = navigation?.extras?.state!.value;
   }
 
   ngOnInit(): void {
   }
 
   onGoEdit(): void {
-    this.navigationExtras.state = this.mentorado;
+    this.navigationExtras.state!.value = this.mentorado;
     this.router.navigate(['edit'], this.navigationExtras);
   }
   onDelete():void{
