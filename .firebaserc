@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mifocam": {
+      "hosting": {
+        "EjercicioUno": [
+          "mifocam"
+        ]
+      }
+    }
+  }
+}
