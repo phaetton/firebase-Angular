@@ -44,7 +44,8 @@ export class MentoradoFormComponent implements OnInit {
     console.log('Guardando', this.mentoradosForm.value);
     if (this.mentoradosForm.valid) {
       const mentorado = this.mentoradosForm.value;
-      this.mentoradosSvc.onSaveMentorado(mentorado);
+      const mentoradoId = this.mentorado?.id || undefined;
+      this.mentoradosSvc.onSaveMentorado(mentorado , mentoradoId );
       this.mentoradosForm.reset();
     }
   }

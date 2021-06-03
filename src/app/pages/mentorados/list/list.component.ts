@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Mentorado } from 'src/app/shared/models/mentorado.interface';
+import { MentoradosService } from '../mentorados.service';
 
 @Component({
   selector: 'app-list',
@@ -8,6 +9,8 @@ import { Mentorado } from 'src/app/shared/models/mentorado.interface';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+//creamos un observable
+mentorados$=this.mentoradosSvg.mentorados;
 
   navigationExtras: NavigationExtras = {
     state: {
@@ -16,40 +19,7 @@ export class ListComponent implements OnInit {
   };
 
  
-  fakeData = [
-    {
-      nombre: 'Jose',
-      apellido: 'Perez',
-      email: 'Jose@jose.com',
-      fechanac: '02/04/1986'
-    },
-    {
-      nombre: 'pedro',
-      apellido: 'Perez',
-      email: 'Jose@jose.com',
-      fechanac: '02/04/1986'
-    },
-    {
-      nombre: 'Mario',
-      apellido: 'Perez',
-      email: 'Jose@jose.com',
-      fechanac: '02/04/1986'
-    },
-    {
-      nombre: 'Maria',
-      apellido: 'Perez',
-      email: 'Jose@jose.com',
-      fechanac: '02/04/1986'
-    },
-    {
-      nombre: 'Jean',
-      apellido: 'Perez',
-      email: 'Jose@jose.com',
-      fechanac: '02/04/1986'
-    },
-
-  ]
-  constructor(private router: Router) { }
+  constructor(private router: Router, private mentoradosSvg:MentoradosService) { }
 
   ngOnInit(): void {
   }

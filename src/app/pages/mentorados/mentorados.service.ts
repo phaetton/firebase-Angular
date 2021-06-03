@@ -9,7 +9,7 @@ import { Mentorado } from 'src/app/shared/models/mentorado.interface';
 })
 export class MentoradosService {
 
-  mentorados?: Observable<Mentorado[]> ;
+  mentorados: Observable<Mentorado[]> | undefined;
   private mentoradosCollection: AngularFirestoreCollection<Mentorado>;
 
   constructor(private readonly afs: AngularFirestore) {
@@ -28,16 +28,16 @@ export class MentoradosService {
     })
    }
 
-  onSaveMentorado(mentorado: Mentorado): Promise<void> {
+  onSaveMentorado(mentorado: Mentorado, mentId: string | undefined): Promise<void> {
     return new Promise(async (resolve, reject) => {
       try {
-        const id =this.afs.createId();
+        const id =  mentId || this.afs.createId();
         const data = { id, ...mentorado };
         const result =await this.mentoradosCollection.doc(id).set(data);
         alert('agregado con exito');
         resolve(result);        
       } catch (error) {
-        alert('error al agregar el cliente'+error.message);
+        alert('error al agregar el cliente')
         reject(error.message);
       }
     });
