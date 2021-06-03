@@ -34,7 +34,7 @@ export class MentoradosService {
         const id =  mentId || this.afs.createId();
         const data = { id, ...mentorado };
         const result =await this.mentoradosCollection.doc(id).set(data);
-        alert('agregado con exito');
+        alert('Proceso realizado con exito');
         resolve(result);        
       } catch (error) {
         alert('error al agregar el cliente')

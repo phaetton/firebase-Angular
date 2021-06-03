@@ -35,6 +35,7 @@ export class DetailsComponent implements OnInit {
     try {
       await this.mentoradosSvg.onDeleteMentorado(this.mentorado?.id);
       alert('Registro eliminado con exito');
+      this.onGoBackList();
     } catch (error) {
       alert('Error al eliminar el registro');
     }

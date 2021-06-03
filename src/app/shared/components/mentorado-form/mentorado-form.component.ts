@@ -21,6 +21,12 @@ export class MentoradoFormComponent implements OnInit {
     fechanac: new FormControl('', Validators.required)
   })
 
+  isValidField(field: string): string {
+    const validatedField = this.mentoradosForm.get(field);
+    return (!validatedField?.valid && validatedField?.touched) ? 'is-invalid' : validatedField?.touched ? 'is-valid' : '';
+
+  }
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -45,7 +51,7 @@ export class MentoradoFormComponent implements OnInit {
     if (this.mentoradosForm.valid) {
       const mentorado = this.mentoradosForm.value;
       const mentoradoId = this.mentorado?.id || undefined;
-      this.mentoradosSvc.onSaveMentorado(mentorado , mentoradoId );
+      this.mentoradosSvc.onSaveMentorado(mentorado, mentoradoId);
       this.mentoradosForm.reset();
     }
   }
