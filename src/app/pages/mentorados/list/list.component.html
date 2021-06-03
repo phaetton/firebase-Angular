@@ -17,7 +17,7 @@
       <td>
         <button (click)=onGoEdit(item)>Edit</button>
         <button (click)=onGoSee(item)>See</button>
-        <button (click)=onGoDelete(item)>Delete</button>
+        <button (click)=onGoDelete(item.id)>{{item.id}}</button>
       </td>
     </tr>
   </tbody>

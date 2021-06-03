@@ -17,7 +17,7 @@ export class MentoradosService {
     this.getMentorados();
   }
 
-  onDeleteMentorado(mentId: string): Promise<void> {
+   onDeleteMentorado(mentId: any): Promise<void> {
     return new Promise(async (resolve, reject) => {
       try {
         const result=await this.mentoradosCollection.doc(mentId).delete();
@@ -26,7 +26,7 @@ export class MentoradosService {
         reject(error.message);
       }
     })
-   }
+   }  
 
   onSaveMentorado(mentorado: Mentorado, mentId: string | undefined): Promise<void> {
     return new Promise(async (resolve, reject) => {

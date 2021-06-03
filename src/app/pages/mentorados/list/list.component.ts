@@ -9,8 +9,8 @@ import { MentoradosService } from '../mentorados.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-//creamos un observable
-mentorados$=this.mentoradosSvg.mentorados;
+  //creamos un observable
+  mentorados$ = this.mentoradosSvg.mentorados;
 
   navigationExtras: NavigationExtras = {
     state: {
@@ -18,8 +18,8 @@ mentorados$=this.mentoradosSvg.mentorados;
     }
   };
 
- 
-  constructor(private router: Router, private mentoradosSvg:MentoradosService) { }
+
+  constructor(private router: Router, private mentoradosSvg: MentoradosService) { }
 
   ngOnInit(): void {
   }
@@ -33,9 +33,15 @@ mentorados$=this.mentoradosSvg.mentorados;
     this.navigationExtras.state!.value = item;
     this.router.navigate(['details'], this.navigationExtras);
   }
-  onGoDelete(item: any): void {
-    alert('Deleted');
+
+  async onGoDelete(mentId: any): Promise<void> {
+    try {
+      await this.mentoradosSvg.onDeleteMentorado(mentId);
+      alert('Registro eliminado con exito');
+    } catch (error) {
+      alert('Error al eliminar el registro');
+    }
   }
 
-  
+
 }

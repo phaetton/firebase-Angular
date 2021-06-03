@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Mentorado } from 'src/app/shared/models/mentorado.interface';
+import { MentoradosService } from '../mentorados.service';
 
 @Component({
   selector: 'app-details',
@@ -15,7 +16,7 @@ export class DetailsComponent implements OnInit {
   };
 
   mentorado: Mentorado;
-  constructor(private router: Router) {
+  constructor(private router: Router,private mentoradosSvg:MentoradosService) {
     const navigation = this.router.getCurrentNavigation();
     this.mentorado = navigation?.extras?.state!.value;
   }
@@ -30,8 +31,13 @@ export class DetailsComponent implements OnInit {
     this.navigationExtras.state!.value = this.mentorado;
     this.router.navigate(['edit'], this.navigationExtras);
   }
-  onDelete():void{
-    alert('Deleted');
+  async onDelete(): Promise<void> {
+    try {
+      await this.mentoradosSvg.onDeleteMentorado(this.mentorado?.id);
+      alert('Registro eliminado con exito');
+    } catch (error) {
+      alert('Error al eliminar el registro');
+    }
   }
 
   onGoBackList():void{
