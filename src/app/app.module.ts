@@ -7,10 +7,13 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 
 import { ReactiveFormsModule  } from "@angular/forms";
 
-import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+
 import { environment } from 'src/environments/environment';
 import { MentoradoFormModule } from './shared/components/mentorado-form/mentorado-form.module';
+
+import { AngularFireModule } from "@angular/fire";
+import {AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,11 @@ import { MentoradoFormModule } from './shared/components/mentorado-form/mentorad
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    MentoradoFormModule
+    MentoradoFormModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

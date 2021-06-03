@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MentoradosService } from 'src/app/pages/mentorados/mentorados.service';
 import { Mentorado } from '../../models/mentorado.interface';
 
 @Component({
@@ -16,11 +17,15 @@ export class MentoradoFormComponent implements OnInit {
   mentoradosForm = new FormGroup({
     email: new FormControl('', Validators.required),
     nombre: new FormControl('', Validators.required),
-    apellido: new FormControl('', [Validators.required, Validators.pattern(this.isEmail)]),
+    apellido: new FormControl('', Validators.required),
     fechanac: new FormControl('', Validators.required)
   })
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private mentoradosSvc: MentoradosService
+  ) {
     const navigation = this.router.getCurrentNavigation();
     this.mentorado = navigation?.extras?.state?.value;
   }
@@ -28,7 +33,7 @@ export class MentoradoFormComponent implements OnInit {
   ngOnInit(): void {
     if (typeof this.mentorado === 'undefined') {
       //redirect to
-      alert('no existe el mentorado, lo redigiremos a crear uno');
+      alert('Usted Agregará un nuevo Cliente');
       this.router.navigate(['new']);
     } else {
       this.mentoradosForm.patchValue(this.mentorado);
@@ -36,7 +41,11 @@ export class MentoradoFormComponent implements OnInit {
   }
 
   onSave(): void {
-    alert('Guardado con exito');
+    console.log('Guardando', this.mentoradosForm.value);
+    if (this.mentoradosForm.valid) {
+      const mentorado = this.mentoradosForm.value;
+      this.mentoradosSvc.onSaveMentorado(mentorado);
+    }
   }
 
   onGoBackList(): void {

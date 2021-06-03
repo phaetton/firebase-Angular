@@ -1,14 +1,28 @@
 <form (ngSubmit)='onSave()' [formGroup]="mentoradosForm">
     <label for="nombre">nombre</label>
     <input formControlName="nombre" type="text">
+    <p *ngIf="mentoradosForm.controls.nombre.errors">
+      Error en nombre
+    </p>
     <label for="apellido">apellido</label>
     <input formControlName="apellido" type="text">
+    <p *ngIf="mentoradosForm.controls.apellido.errors">
+      Error en apellido
+    </p>
     <label for="email">email</label>
     <input formControlName="email" type="text">
+    <p *ngIf="mentoradosForm.controls.email.errors">
+      Error en email
+    </p>
     <label for="fechanac">fechanac</label>
     <input formControlName="fechanac" type="text">
+    <p *ngIf="mentoradosForm.controls.fechanac.errors">
+      Error en fecha de nacimiento
+    </p>
   
     <button type="submit">Guardar</button>
   </form>
   
   <button (click)='onGoBackList()'>Regresar a la lista</button>
+
+  {{mentoradosForm.valid | json}}
