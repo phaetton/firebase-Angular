@@ -5,10 +5,12 @@ import { Mentorado } from 'src/app/shared/models/mentorado.interface';
 
 @Component({
   selector: 'app-edit',
-  templateUrl: './edit.component.html',
+  template: `<app-mentorado-form></app-mentorado-form>`,
   styleUrls: ['./edit.component.scss']
 })
-export class EditComponent implements OnInit {
+export class EditComponent  {
+  /* no se necesita porque tomamos el template de app mentorado form
+  
   mentorado: Mentorado;
   private isEmail = '/\S+@\S+\.\S+/';
 
@@ -41,6 +43,6 @@ export class EditComponent implements OnInit {
   onGoBackList(): void {
     this.router.navigate(['list']);
   }
-
+ */
 
 }
