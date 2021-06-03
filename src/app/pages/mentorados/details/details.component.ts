@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
   mentorado: Mentorado;
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    this.mentorado = navigation?.extras?.state?.value;
+    this.mentorado = navigation?.extras?.state!.value;
   }
 
   ngOnInit(): void {

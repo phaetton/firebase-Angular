@@ -42,5 +42,4 @@ export class MentoradoFormComponent implements OnInit {
   onGoBackList(): void {
     this.router.navigate(['list']);
   }
-
 }
