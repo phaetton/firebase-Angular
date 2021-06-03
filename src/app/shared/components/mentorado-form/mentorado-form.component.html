@@ -1,22 +1,22 @@
 <form (ngSubmit)='onSave()' [formGroup]="mentoradosForm">
     <label for="nombre">nombre</label>
     <input formControlName="nombre" [class]="isValidField('nombre')" type="text">
-    <p *ngIf="mentoradosForm.controls.nombre.errors">
+    <p *ngIf="mentoradosForm.controls.nombre.errors && mentoradosForm.controls.nombre.touched  ">
       Error en nombre
     </p>
     <label for="apellido">apellido</label>
     <input formControlName="apellido"  [class]="isValidField('apellido')" type="text">
-    <p *ngIf="mentoradosForm.controls.apellido.errors">
+    <p *ngIf="mentoradosForm.controls.apellido.errors && mentoradosForm.controls.apellido.touched  ">
       Error en apellido
     </p>
     <label for="email">email</label>
     <input formControlName="email"  [class]="isValidField('email')" type="text">
-    <p *ngIf="mentoradosForm.controls.email.errors">
+    <p *ngIf="mentoradosForm.controls.email.errors && mentoradosForm.controls.email.touched  ">
       Error en email
     </p>
     <label for="fechanac">fechanac</label>
     <input formControlName="fechanac"  [class]="isValidField('fechanac')" type="text">
-    <p *ngIf="mentoradosForm.controls.fechanac.errors">
+    <p *ngIf="mentoradosForm.controls.fechanac.errors && mentoradosForm.controls.fechanac.touched  ">
       Error en fecha de nacimiento
     </p>
   
