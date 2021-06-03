@@ -45,6 +45,7 @@ export class MentoradoFormComponent implements OnInit {
     if (this.mentoradosForm.valid) {
       const mentorado = this.mentoradosForm.value;
       this.mentoradosSvc.onSaveMentorado(mentorado);
+      this.mentoradosForm.reset();
     }
   }
 
